@@ -16,7 +16,9 @@ const extractTextContent = (node: React.ReactNode): string => {
     return node.map(extractTextContent).join("");
   }
   if (isValidElement(node)) {
-    return extractTextContent(node.props.children);
+    return extractTextContent(
+      (node.props as { children: React.ReactNode }).children,
+    );
   }
   return "";
 };
@@ -240,10 +242,11 @@ const components: Partial<Components> = {
   ),
   img: ({ alt, ...props }: React.ImgHTMLAttributes<HTMLImageElement>) => (
     // biome-ignore lint/a11y/useAltText: alt is not required
+    // eslint-disable-next-line @next/next/no-img-element
     <img className="rounded-md" alt={alt} {...props} />
   ),
   code: ({ children, node, className, ...props }) => {
-    const match = /language-(\w+)/.exec(className || "");
+    const match = /language-(\w+)/.exec(className ?? "");
     if (match) {
       return (
         <CodeBlock language={match[1]!} className={className} {...props}>
