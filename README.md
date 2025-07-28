@@ -17,12 +17,12 @@ A GitHub Codespace template for quickly setting up Node.js development environme
 2. Open in GitHub Codespaces
 3. The environment will automatically set up with Node.js 22 and pnpm
 
-### Initialize a T3 App
+### Setup a T3 App
 
-Run the initialization script to create a new T3 app:
+Run the setup script to create a new T3 app:
 
 ```bash
-./scripts/init-app.sh
+./scripts/setup-app.sh
 ```
 
 This script will:
@@ -54,7 +54,7 @@ The initialization script sets up a full-stack TypeScript application with:
 ├── .devcontainer/          # Dev container configuration
 │   └── devcontainer.json   # Container settings and setup
 ├── scripts/                # Utility scripts
-│   └── init-app.sh        # T3 app initialization script
+│   └── setup-app.sh        # T3 app setup script
 └── README.md              # This file
 ```
 
@@ -66,18 +66,10 @@ If you want to create a new T3 app, simply run:
 ./scripts/init-app.sh
 ```
 
-### Manual Setup
-If you prefer to set up your project manually:
-```bash
-# Install pnpm (if not already available)
-npm install -g pnpm
-
-# Create your preferred project structure
-pnpm create next-app@latest my-app
-# or
-pnpm create vite@latest my-app
-# or any other Node.js project
-```
+## Services
+- [Vercel](https://vercel.com/) for Hosting
+- [Turso](https://turso.tech/) for Database
+- [Upstash](https://upstash.com/) for Vector
 
 ## Customization
 
@@ -87,8 +79,8 @@ Edit `.devcontainer/devcontainer.json` to:
 - Add additional tools or extensions
 - Modify post-creation commands
 
-### Updating the Init Script
-Modify `scripts/init-app.sh` to:
+### Updating the Setup Script
+Modify `scripts/setup-app.sh` to:
 - Use different project templates
 - Add custom setup steps
 - Install additional dependencies
